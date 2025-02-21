@@ -61,14 +61,14 @@ const TechStack = ({ position = "center" }: TechStackProps) => {
             <Image src="/assets/figma.png" alt="Figma" fill className="object-contain" />
           </div>
           <div className="flex items-center justify-center p-4 relative h-20 w-20">
-            <Image src="/assets/docker.jfif" alt="Docker" fill className="object-contain" />
+            <Image src="/assets/docker.png" alt="Docker" fill className="object-contain" />
           </div>
           <div className="flex items-center justify-center p-4 relative h-20 w-20">
             <Image src="/assets/github.png" alt="GitHub" fill className="object-contain" />
           </div>
           <div className="flex items-center justify-center p-4 relative h-20 w-20">
             <Image
-              src="/assets/vscode.jfif"
+              src="/assets/vscode.png"
               alt="VS Code"
               fill
               className="object-contain"
