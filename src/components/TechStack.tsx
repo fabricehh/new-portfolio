@@ -16,7 +16,7 @@ const TechStack = ({ position = "center" }: TechStackProps) => {
         </p>
       </div>
       <div className="text-start">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-14">
           <div className="flex items-center justify-center p-4 relative h-20 w-20">
             <Image
               src="/assets/spring-boot.png"

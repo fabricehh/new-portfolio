@@ -5,9 +5,9 @@ const maPhoto = "/assets/ma-photo.png";
 const Greatings = () => {
   return (
     <section className="container mx-auto px-4 pt-32 pb-16">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-        <div className="flex-1">
-          <h1 className="text-5xl md:text-6xl font-bold text-slate-800 mb-4">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-20">
+        <div className="flex-1 space-y-6">
+          <h1 className="text-5xl md:text-6xl font-bold text-slate-800">
             Hi 👋,
             <br />
             My name is
@@ -19,7 +19,7 @@ const Greatings = () => {
           </h2>
         </div>
 
-        <div className="flex-1 flex justify-center">
+        <div className="flex-1 flex justify-end">
           <div className="relative w-64 h-64 md:w-80 md:h-80">
             <Image src={maPhoto} alt="Profile" fill />
           </div>

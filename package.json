@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "predev": "next telemetry disable"
   },
   "dependencies": {
     "country-flag-icons": "^1.5.18",
