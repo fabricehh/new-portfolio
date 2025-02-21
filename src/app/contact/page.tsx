@@ -17,7 +17,7 @@ export default function ContactPage() {
         <div className="flex flex-col md:flex-row gap-24">
           <div className="md:w-1/3">
             <h2 className="text-4xl font-bold mb-12">
-              Let's Work <span className="text-orange-500">Together</span>
+              Let&apos;s Work <span className="text-orange-500">Together</span>
             </h2>
             <div className="space-y-8">
               <div className="flex items-center gap-4">

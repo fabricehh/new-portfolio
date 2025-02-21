@@ -48,7 +48,7 @@ const Projects = ({ position = 'center' }: ProjectsProps) => {
     <section className={`px-4 pt-5 ${position === 'center' ? 'mt-10' : 'mt-2'} pb-16`}>
       <div className={`text-${position} mb-8`}>
         <h2 className="text-4xl font-bold text-slate-800 mb-2">Projects</h2>
-        <p className="text-slate-600">Things I've built so far</p>
+        <p className="text-slate-600">Things I&apos;ve built so far</p>
       </div>
 
       <div className={`max-w-5xl ${getGridClasses()} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6`}>
