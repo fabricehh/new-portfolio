@@ -8,7 +8,7 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white pt-24">
       <Header />
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-10">
         <div className="flex gap-4 pb-10">
           <div className="w-1/2">
             <Curriculum />

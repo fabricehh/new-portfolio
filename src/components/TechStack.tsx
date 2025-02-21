@@ -6,7 +6,7 @@ interface TechStackProps {
 
 const TechStack = ({ position = "center" }: TechStackProps) => {
   return (
-    <section className={`container mx-auto px-4 ${position === 'center' ? 'pt-16' : 'pt-10'} pb-16`}>
+    <section className={`container mx-auto px-8 ${position === 'center' ? 'pt-16' : 'pt-10'} pb-16`}>
       <div className={`text-${position} mb-8`}>
         <h2 className="text-4xl font-bold text-slate-800 mb-2">
           My Tech Stack

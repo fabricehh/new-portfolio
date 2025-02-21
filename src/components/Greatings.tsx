@@ -4,7 +4,7 @@ const maPhoto = "/assets/ma-photo.png";
 
 const Greatings = () => {
   return (
-    <section className="container mx-auto px-4 pt-32 pb-16">
+    <section className="container mx-auto px-8 pt-32 pb-16">
       <div className="flex flex-col md:flex-row items-center justify-between gap-20">
         <div className="flex-1 space-y-6">
           <h1 className="text-5xl md:text-6xl font-bold text-slate-800">

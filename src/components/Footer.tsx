@@ -3,7 +3,7 @@ import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa'
 
 const Footer = () => {
   return (
-    <footer className="container mx-auto px-4 py-8 border-t">
+    <footer className="container mx-auto px-8 py-8 border-t">
       <div className="flex flex-col gap-6">
         {/* Top row with logo and contact info */}
         <div className="flex justify-between items-center">
