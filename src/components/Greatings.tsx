@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image";
 
 const maPhoto = "/assets/ma-photo.png";
 
@@ -15,23 +15,18 @@ const Greatings = () => {
             <span className="text-blue-500">Fabrice HOUESSOU</span>
           </h1>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-700">
-            I build things for web
+            I build web and mobile apps
           </h2>
         </div>
 
         <div className="flex-1 flex justify-center">
           <div className="relative w-64 h-64 md:w-80 md:h-80">
-          <Image
-                src={maPhoto}
-                alt="Profile"
-                fill
-                
-              />
+            <Image src={maPhoto} alt="Profile" fill />
           </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Greatings 
+export default Greatings;
