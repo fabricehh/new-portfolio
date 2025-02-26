@@ -2,10 +2,18 @@
 
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { useProfilStore } from '@/store/profilStore'
+import { sendEmail } from '@/actions/sendEmail'
 
 export default function ContactPage() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+
+  const { profil } = useProfilStore();
+  
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    "use server";
+    const formData = new FormData(e.target as HTMLFormElement);
+    const result = await sendEmail(formData);
     // Ici vous pourrez ajouter la logique de soumission plus tard
   }
 
@@ -23,19 +31,19 @@ export default function ContactPage() {
               <div className="flex items-center gap-4">
                 <span className="text-blue-500 text-xl">📧</span>
                 <p className="text-slate-600 hover:text-blue-500 cursor-pointer text-lg">
-                  njauprince@gmail.com
+                  {profil.email}
                 </p>
               </div>
               <div className="flex items-center gap-4">
                 <span className="text-blue-500 text-xl">📍</span>
                 <p className="text-slate-600 text-lg">
-                  Nairobi, Kenya
+                  {profil.location}
                 </p>
               </div>
               <div className="flex items-center gap-4">
                 <span className="text-blue-500 text-xl">📞</span>
                 <p className="text-slate-600 hover:text-blue-500 cursor-pointer text-lg">
-                  +254706338454
+                  {profil.telephone}
                 </p>
               </div>
             </div>

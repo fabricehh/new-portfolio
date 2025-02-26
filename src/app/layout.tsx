@@ -13,18 +13,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio Developer Engineer",
-  description: "Developer Engineer portfolio specialized in React, Next.js, TypeScript and Tailwind CSS. Discover my projects and skills.",
-  keywords: ["developer engineer", "frontend", "React", "Next.js", "TypeScript", "portfolio"],
+  title: "Portfolio Developer",
+  description: "Software Developer portfolio specialized in React, Next.js, TypeScript and Tailwind CSS. Discover my projects and skills.",
+  keywords: ["developer", "frontend", "React", "Next.js", "TypeScript", "portfolio"],
   authors: [{ name: "Fabrice HOUESSOU" }],
   creator: "Fabrice HOUESSOU",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "fabricehouessou.dev",
-    title: "Portfolio Developer Engineer",
-    description: "Developer Engineer portfolio specialized in React, Next.js, TypeScript and Tailwind CSS",
-    siteName: "Developer Engineer Portfolio"
+    title: "Portfolio Developer",
+    description: "Software Developer portfolio specialized in React, Next.js, TypeScript and Tailwind CSS",
+    siteName: "Software Developer Portfolio"
   },
 };
 
