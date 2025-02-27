@@ -27,24 +27,9 @@ export async function sendEmail(formData: FormData) {
       message: formData.get('message'),
     })
 
-    // Send email
-    await transporter.sendMail({
-      from: validatedFields.email,
-      to: process.env.RECIPIENT_EMAIL,
-      subject: validatedFields.subject || 'New Contact Form Message',
-      text: validatedFields.message,
-      html: `
-        <div style="font-family: Arial, sans-serif; padding: 20px; max-width: 600px;">
-          <h2 style="color: #1a73e8;">New Contact Form Message</h2>
-          <p style="color: #666; margin-bottom: 20px;">
-            <strong>From:</strong> ${validatedFields.email}
-          </p>
-          <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px;">
-            <p style="color: #333; white-space: pre-wrap;">${validatedFields.message}</p>
-          </div>
-        </div>
-      `
-    })
+
+    console.log(validatedFields.email);
+
 
     return true
   } catch (error) {

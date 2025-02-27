@@ -3,9 +3,11 @@ import Link from 'next/link'
 import { useState, useRef, useEffect } from 'react'
 import { FaGithub, FaTwitter, FaLinkedin, FaChevronDown } from 'react-icons/fa'
 import { GB, FR } from 'country-flag-icons/react/3x2'
-import { HiMenu, HiX } from 'react-icons/hi'
+import { HiMenu, HiX } from 'react-icons/hi';
+import { useProfilStore } from '@/store/profilStore';
 
 const Header = () => {
+  const { profil } = useProfilStore();
   const [language, setLanguage] = useState('en')
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false)
@@ -32,7 +34,7 @@ const Header = () => {
       <div className="container mx-auto px-8 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-[#DC18AE] to-[#1AACF3] text-transparent bg-clip-text">
-            {'{fabriceh}'}
+            {`{${profil.alias}}`}
           </Link>
 
           {/* Mobile menu button */}
@@ -94,13 +96,13 @@ const Header = () => {
             </div>
 
             <div className="flex items-center space-x-4">
-              <Link href="https://github.com" target="_blank" className="hover:text-blue-500">
+              <Link href={profil.urlGithub} target="_blank" className="hover:text-blue-500">
                 <FaGithub size={20} />
               </Link>
-              <Link href="https://twitter.com" target="_blank" className="hover:text-blue-500">
+              <Link href={profil.urlTwitter} target="_blank" className="hover:text-blue-500">
                 <FaTwitter size={20} />
               </Link>
-              <Link href="https://linkedin.com" target="_blank" className="hover:text-blue-500">
+              <Link href={profil.urlLinkedin} target="_blank" className="hover:text-blue-500">
                 <FaLinkedin size={20} />
               </Link>
             </div>
