@@ -5,53 +5,53 @@ import CertificationCard from '@/components/CertificationCard';
 
 const certifications = [
   {
-    title: "Certification AWS Solutions Architect",
-    organization: "Amazon Web Services",
-    image: "/assets/project-bg-image.png",
+    title: "Reactjs, Nextjs Masterclass",
+    organization: "Udemy",
+    image: "/assets/certifications/cert1.png",
     trainers: ["John Doe", "Jane Smith"],
     date: "15 mars 2023",
     duration: "40 heures"
   },
   {
-    title: "Certification React Advanced",
-    organization: "Meta",
-    image: "/assets/project-bg-image.png",
-    trainers: ["Mark Johnson"],
-    date: "22 juin 2023",
-    duration: "30 heures"
-  },
-  {
-    title: "Certification Scrum Master",
-    organization: "Scrum Alliance",
-    image: "/assets/project-bg-image.png",
-    trainers: ["Sarah Wilson"],
-    date: "10 décembre 2022",
-    duration: "25 heures"
-  },
-  {
-    title: "Certification AWS Solutions Architect",
-    organization: "Amazon Web Services",
-    image: "/assets/project-bg-image.png",
+    title: "Angluar Full Mastery",
+    organization: "Udemy",
+    image: "/assets/certifications/cert2.png",
     trainers: ["John Doe", "Jane Smith"],
     date: "15 mars 2023",
     duration: "40 heures"
   },
   {
-    title: "Certification React Advanced",
-    organization: "Meta",
-    image: "/assets/project-bg-image.png",
-    trainers: ["Mark Johnson"],
-    date: "22 juin 2023",
-    duration: "30 heures"
+    title: "Reactjs, Nextjs Masterclass",
+    organization: "Udemy",
+    image: "/assets/certifications/cert1.png",
+    trainers: ["John Doe", "Jane Smith"],
+    date: "15 mars 2023",
+    duration: "40 heures"
   },
   {
-    title: "Certification Scrum Master",
-    organization: "Scrum Alliance",
-    image: "/assets/project-bg-image.png",
-    trainers: ["Sarah Wilson"],
-    date: "10 décembre 2022",
-    duration: "25 heures"
-  }
+    title: "Reactjs, Nextjs Masterclass",
+    organization: "Udemy",
+    image: "/assets/certifications/cert1.png",
+    trainers: ["John Doe", "Jane Smith"],
+    date: "15 mars 2023",
+    duration: "40 heures"
+  },
+  {
+    title: "Angluar Full Mastery",
+    organization: "Udemy",
+    image: "/assets/certifications/cert2.png",
+    trainers: ["John Doe", "Jane Smith"],
+    date: "15 mars 2023",
+    duration: "40 heures"
+  },
+  {
+    title: "Reactjs, Nextjs Masterclass",
+    organization: "Udemy",
+    image: "/assets/certifications/cert1.png",
+    trainers: ["John Doe", "Jane Smith"],
+    date: "15 mars 2023",
+    duration: "40 heures"
+  },
 ];
 
 const CertificationsPage = () => {
@@ -60,7 +60,7 @@ const CertificationsPage = () => {
       <Header />
       <main className="min-h-screen pt-20 pb-16">
         <div className="container mx-auto px-14 py-8">
-          <h1 className="text-3xl font-bold mb-4">Mes Certifications</h1>
+          <h1 className="text-3xl font-bold mb-4">My Certifications</h1>
           <p className="text-gray-600 mb-8 max-w-2xl">
             Discover my professional certifications that showcase my continuous commitment to developing my technical expertise.
           </p>

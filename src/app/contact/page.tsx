@@ -3,7 +3,6 @@
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { useProfilStore } from '@/store/profilStore'
-import { sendEmail } from '@/actions/sendEmail'
 import { useState } from 'react';
 import { toaster } from "@/components/ui/toaster";
 

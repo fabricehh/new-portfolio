@@ -24,7 +24,7 @@ const ProjectCard = ({ title, description, techStack, imageUrl, livePreviewUrl, 
       
       <div className="p-6">
         <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-slate-600 text-sm mb-4">{description}</p>
+        <p className="text-slate-600 text-sm mb-4 text-justify">{description}</p>
         <p className="text-sm text-slate-500 mb-4">Tech stack: {techStack}</p>
         
         <div className="flex gap-4">

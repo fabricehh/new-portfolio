@@ -7,26 +7,26 @@ interface ProjectsProps {
 const Projects = ({ position = 'center' }: ProjectsProps) => {
   const projects = [
     {
-      title: "Project Title goes here",
-      description: "This is sample project description random things are here in description.This is sample project lorem ipsum generator for dummy content",
-      techStack: "HTML, JavaScript, SASS, React",
-      imageUrl: "/assets/project-bg-image.png",
+      title: "My Portfolio Website",
+      description: "A modern and dynamic portfolio showcasing my projects, certifications, technical skills, and professional journey. Built with Next.js, it highlights my expertise in web development and passion for creating innovative digital solutions.",
+      techStack: "Next.js, Typescript, Tailwind CSS, React",
+      imageUrl: "/assets/projects/project1.png",
       livePreviewUrl: "https://example.com",
       codeUrl: "https://github.com"
     },
     {
-        title: "Project Title goes here",
-        description: "This is sample project description random things are here in description.This is sample project lorem ipsum generator for dummy content",
-        techStack: "HTML, JavaScript, SASS, React",
-        imageUrl: "/assets/project-bg-image.png",
+        title: "Vocab Anglais",
+        description: "A mobile application that helps French speakers learn English by memorizing words. It is based on scientific and psychological techniques of memorization through repetition and absorption of words.",
+        techStack: "Flutter, Dart, Supabase, Postgresql",
+        imageUrl: "/assets/projects/project2.png",
         livePreviewUrl: "https://example.com",
         codeUrl: "https://github.com"
     },
     {
-        title: "Project Title goes here",
-        description: "This is sample project description random things are here in description.This is sample project lorem ipsum generator for dummy content",
-        techStack: "HTML, JavaScript, SASS, React",
-        imageUrl: "/assets/project-bg-image.png",
+        title: "FinBank UI Design",
+        description: "This is a UI design for a banking application with some features like login, register, dashboard, transactions, etc. It is a flat design with a modern and clean look. We used Figma to design the UI.",
+        techStack: "UI, Figma, Flat Design",
+        imageUrl: "/assets/projects/project3.png",
         livePreviewUrl: "https://example.com",
         codeUrl: "https://github.com"
       },

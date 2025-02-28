@@ -1,7 +1,11 @@
+"use client";
+
 import Link from 'next/link'
 import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa'
+import { useProfilStore } from '@/store/profilStore';
 
 const Footer = () => {
+  const { profil } = useProfilStore();
   return (
     <footer className="container mx-auto px-8 py-8 border-t">
       <div className="flex flex-col gap-6">
@@ -11,12 +15,12 @@ const Footer = () => {
             <span className="text-xl bg-gradient-to-r from-[#DC18AE] to-[#1AACF3] text-transparent bg-clip-text">
               {'{fabricehh}'}
             </span>
-            <span className="block text-sm font-normal text-slate-600">Fabrice HOUESSOU</span>
+            <span className="block text-sm font-normal text-slate-600">{profil.prenom} {profil.nom}</span>
           </Link>
           
           <div className="flex items-center gap-8">
-            <span className="text-sm text-slate-600">+91 12345 09876</span>
-            <span className="text-sm text-slate-600">info@example.com</span>
+            <span className="text-sm text-slate-600">{profil.telephone}</span>
+            <span className="text-sm text-slate-600">{profil.email}</span>
             <div className="flex items-center gap-4">
               <Link href="https://github.com" target="_blank" className="hover:text-blue-500">
                 <FaGithub size={20} />
