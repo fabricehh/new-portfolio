@@ -15,12 +15,12 @@ export default function ContactPage() {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
   
-  const isFormValid = () => {
-    return email.trim() !== '' && 
-           subject.trim() !== '' && 
-           message.trim().length > 10 &&
-           /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
+  // const isFormValid = () => {
+  //   return email.trim() !== '' && 
+  //          subject.trim() !== '' && 
+  //          message.trim().length > 10 &&
+  //          /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  // };
   
   const handleSubmit = () => {
     toaster.create({
