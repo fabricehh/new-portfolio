@@ -19,7 +19,7 @@ interface UserStore {
     profil: Profil ;
 }
 
-export const useProfilStore = create<UserStore>((set) => ({
+export const useProfilStore = create<UserStore>(() => ({
     profil: {
         alias: "fabriceh",
         email: "huehanou.houessou@gmail.com",
