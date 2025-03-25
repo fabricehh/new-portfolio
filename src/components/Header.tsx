@@ -48,11 +48,11 @@ const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <Link href="/" className="hover:text-blue-500">Home</Link>
-            <Link href="/about-me" className="hover:text-blue-500">About</Link>
             <Link href="/tech-stack" className="hover:text-blue-500">Tech Stack</Link>
             <Link href="/projects" className="hover:text-blue-500">Projects</Link>
             <Link href="/certifications" className="hover:text-blue-500">Certifications</Link>
             <Link href="/contact" className="hover:text-blue-500">Contact</Link>
+            <Link href="/about-me" className="hover:text-blue-500">About Me</Link>
           </div>
 
           {/* Language and Social Icons - Desktop */}
