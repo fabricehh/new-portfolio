@@ -1,13 +1,16 @@
 "use client";
-
+import { createClient } from "@supabase/supabase-js";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useProfilStore } from "@/store/profilStore";
 import { useState } from "react";
 import { toaster } from "@/components/ui/toaster";
-import { sendMessage } from "@/actions/sendEmail";
+
+const supabase = createClient("https://<project>.supabase.co", "<your-anon-key>");
+
 
 export default function ContactPage() {
+
   const { profil } = useProfilStore();
 
   const [email, setEmail] = useState("");
@@ -24,21 +27,24 @@ export default function ContactPage() {
   };
 
   const handleSubmit = async () => {
-    const response = await sendMessage(email, subject, message);
 
-    if (response.success) {
+    const { error } = await supabase.from("Messages").insert([
+      { sender: email, subject, message },
+    ]);
+
+    if (error) {
       toaster.create({
-        title:  response.message ?? `Toast status is success`,
+        title:  "Échec de l'envoi du message.",
+        type: "error",
+      });
+    } else {
+      toaster.create({
+        title:"Message envoyé avec succès !",
         type: "success",
       });
       setEmail("");
       setSubject("");
       setMessage("");
-    } else {
-      toaster.create({
-        title: response.message ,
-        type: "error",
-      });
     }
   };
 
