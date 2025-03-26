@@ -2,9 +2,9 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useProfilStore } from "@/store/profilStore";
-import { useState } from "react";
-import { toaster } from "@/components/ui/toaster";
+import { useState, FormEvent } from "react";
 import { supabase } from "@/lib/supabase";
+import { toast } from "sonner";
 
 
 export default function ContactPage() {
@@ -12,43 +12,50 @@ export default function ContactPage() {
   const { profil } = useProfilStore();
 
   const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("");
+  const [object, setObject] = useState("");
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const isFormValid = () => {
     return (
       email.trim() !== "" &&
-      subject.trim() !== "" &&
+      object.trim() !== "" &&
       message.trim().length > 10 &&
       /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
     );
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!isFormValid()) return;
+    
+    setIsLoading(true);
+    
+    try {
+      const response = await supabase.from("Messages").insert([
+        { sender: email, object, message },
+      ]);
 
-    toaster.create({
-      title:  "Échec de l'envoi du message.",
-      type: "error",
-    });
+      console.log(response);
 
-    // const { error } = await supabase.from("Messages").insert([
-    //   { sender: email, subject, message },
-    // ]);
+      const error = response.error;
 
-    // if (error) {
-    //   toaster.create({
-    //     title:  "Échec de l'envoi du message.",
-    //     type: "error",
-    //   });
-    // } else {
-    //   toaster.create({
-    //     title:"Message envoyé avec succès !",
-    //     type: "success",
-    //   });
-    //   setEmail("");
-    //   setSubject("");
-    //   setMessage("");
-    // }
+
+      if (error) {
+        toast.error("Failed to send message. Please try again later.");
+        console.error("Error sending message:", error);
+      } else {
+        toast.success("Message sent successfully!");
+        setEmail("");
+        setObject("");
+        setMessage("");
+      }
+    } catch (err) {
+      toast.error("An error occurred. Please try again later.");
+      console.error("Exception:", err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -84,64 +91,79 @@ export default function ContactPage() {
           </div>
 
           <div className="md:w-2/3 space-y-8">
-            <div className="flex gap-8">
-              <div className="flex-1">
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <div className="flex gap-8">
+                <div className="flex-1">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm uppercase font-medium text-slate-600 mb-3"
+                  >
+                    Email
+                  </label>
+                  <input
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
+                    type="email"
+                    id="email"
+                    className="w-full border border-slate-200 rounded-md p-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                </div>
+                <div className="flex-1">
+                  <label
+                    htmlFor="object"
+                    className="block text-sm uppercase font-medium text-slate-600 mb-3"
+                  >
+                    Object
+                  </label>
+                  <input
+                    onChange={(e) => setObject(e.target.value)}
+                    value={object}
+                    type="text"
+                    id="object"
+                    className="w-full border border-slate-200 rounded-md p-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                </div>
+              </div>
+              <div>
                 <label
-                  htmlFor="email"
+                  htmlFor="message"
                   className="block text-sm uppercase font-medium text-slate-600 mb-3"
                 >
-                  Email
+                  Message
                 </label>
-                <input
-                  onChange={(e) => setEmail(e.target.value)}
-                  type="email"
-                  id="email"
+                <textarea
+                  id="message"
+                  onChange={(e) => setMessage(e.target.value)}
+                  value={message}
+                  rows={4}
                   className="w-full border border-slate-200 rounded-md p-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
+                ></textarea>
               </div>
-              <div className="flex-1">
-                <label
-                  htmlFor="subject"
-                  className="block text-sm uppercase font-medium text-slate-600 mb-3"
+              <div className="flex justify-center">
+                <button
+                  type="submit"
+                  disabled={!isFormValid() || isLoading}
+                  className={`px-8 w-[350px] py-4 rounded-md text-lg text-white transition-all flex items-center justify-center
+                    ${
+                      !isFormValid() || isLoading
+                        ? "bg-gray-400 cursor-not-allowed"
+                        : "bg-gradient-to-r from-[#DC18AE] to-[#1AACF3] hover:opacity-90"
+                    }`}
                 >
-                  Subject
-                </label>
-                <input
-                  onChange={(e) => setSubject(e.target.value)}
-                  type="text"
-                  id="subject"
-                  className="w-full border border-slate-200 rounded-md p-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
+                  {isLoading ? (
+                    <>
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Sending...
+                    </>
+                  ) : (
+                    "Send your message"
+                  )}
+                </button>
               </div>
-            </div>
-            <div>
-              <label
-                htmlFor="message"
-                className="block text-sm uppercase font-medium text-slate-600 mb-3"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                onChange={(e) => setMessage(e.target.value)}
-                rows={4}
-                className="w-full border border-slate-200 rounded-md p-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              ></textarea>
-            </div>
-            <div className="flex justify-center">
-              <button
-                disabled={isFormValid() === false}
-                onClick={handleSubmit}
-                className={`px-8 w-[350px] py-4 rounded-md text-lg text-white transition-all
-                  ${
-                    isFormValid() === false
-                      ? "bg-gray-400 cursor-not-allowed"
-                      : "bg-gradient-to-r from-[#DC18AE] to-[#1AACF3] hover:opacity-90"
-                  }`}
-              >
-                Send your message
-              </button>
-            </div>
+            </form>
           </div>
         </div>
       </section>
