@@ -11,7 +11,7 @@ const Projects = ({ position = 'center' }: ProjectsProps) => {
       description: "A modern and dynamic portfolio showcasing my projects, certifications, technical skills, and professional journey. Built with Next.js, it highlights my expertise in web development and passion for creating innovative digital solutions.",
       techStack: "Next.js, Typescript, Tailwind CSS, React",
       imageUrl: "/assets/projects/project1.png",
-      livePreviewUrl: "https://example.com",
+      livePreviewUrl: "https://fabrice.houessou.pro/",
       codeUrl: "https://github.com"
     },
     {
