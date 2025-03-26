@@ -1,12 +1,10 @@
 "use client";
-import { createClient } from "@supabase/supabase-js";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useProfilStore } from "@/store/profilStore";
 import { useState } from "react";
 import { toaster } from "@/components/ui/toaster";
-
-const supabase = createClient("https://<project>.supabase.co", "<your-anon-key>");
+import { supabase } from "@/lib/supabase";
 
 
 export default function ContactPage() {
@@ -28,24 +26,29 @@ export default function ContactPage() {
 
   const handleSubmit = async () => {
 
-    const { error } = await supabase.from("Messages").insert([
-      { sender: email, subject, message },
-    ]);
+    toaster.create({
+      title:  "Échec de l'envoi du message.",
+      type: "error",
+    });
 
-    if (error) {
-      toaster.create({
-        title:  "Échec de l'envoi du message.",
-        type: "error",
-      });
-    } else {
-      toaster.create({
-        title:"Message envoyé avec succès !",
-        type: "success",
-      });
-      setEmail("");
-      setSubject("");
-      setMessage("");
-    }
+    // const { error } = await supabase.from("Messages").insert([
+    //   { sender: email, subject, message },
+    // ]);
+
+    // if (error) {
+    //   toaster.create({
+    //     title:  "Échec de l'envoi du message.",
+    //     type: "error",
+    //   });
+    // } else {
+    //   toaster.create({
+    //     title:"Message envoyé avec succès !",
+    //     type: "success",
+    //   });
+    //   setEmail("");
+    //   setSubject("");
+    //   setMessage("");
+    // }
   };
 
   return (
@@ -129,7 +132,7 @@ export default function ContactPage() {
               <button
                 disabled={isFormValid() === false}
                 onClick={handleSubmit}
-                className={`px-8 w-[150px] py-4 rounded-md text-lg text-white transition-all
+                className={`px-8 w-[350px] py-4 rounded-md text-lg text-white transition-all
                   ${
                     isFormValid() === false
                       ? "bg-gray-400 cursor-not-allowed"
