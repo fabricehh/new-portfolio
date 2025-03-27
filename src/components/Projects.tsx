@@ -12,23 +12,23 @@ const Projects = ({ position = 'center' }: ProjectsProps) => {
       techStack: "Next.js, Typescript, Tailwind CSS, React",
       imageUrl: "/assets/projects/project1.png",
       livePreviewUrl: "https://fabrice.houessou.pro/",
-      codeUrl: "https://github.com"
+      codeUrl: "https://github.com/fabricehh/new-portfolio"
     },
     {
         title: "Vocab Anglais",
         description: "A mobile application that helps French speakers learn English by memorizing words. It is based on scientific and psychological techniques of memorization through repetition and absorption of words.",
         techStack: "Flutter, Dart, Supabase, Postgresql",
         imageUrl: "/assets/projects/project2.png",
-        livePreviewUrl: "https://example.com",
-        codeUrl: "https://github.com"
+        livePreviewUrl: null,
+        codeUrl: "https://github.com/fabricehh"
     },
     {
-        title: "FinBank UI Design",
+        title: "Mobile Bank UI Design",
         description: "This is a UI design for a banking application with some features like login, register, dashboard, transactions, etc. It is a flat design with a modern and clean look. We used Figma to design the UI.",
         techStack: "UI, Figma, Flat Design",
         imageUrl: "/assets/projects/project3.png",
-        livePreviewUrl: "https://example.com",
-        codeUrl: "https://github.com"
+        livePreviewUrl: "https://www.figma.com/design/lL0HpjsCn4szZ3yJuzfXf6/FinBank-Mobile-Banking?node-id=2-58&t=muogkmdevO3J6aAp-1",
+        codeUrl: null,
       },
     // Ajoutez d'autres projets ici
   ]

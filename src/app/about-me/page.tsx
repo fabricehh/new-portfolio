@@ -3,15 +3,18 @@ import Footer from '@/components/Footer'
 import Curriculum from '@/components/Curriculum'
 import Image from 'next/image'
 import { FaEye } from 'react-icons/fa'
+import { base64CVImage } from './CVImage'
 
 export default function AboutPage() {
+
+
   return (
     <main className="min-h-screen bg-white pt-24">
       <Header />
       <div className="container mx-auto px-10">
         <div className="flex gap-4 pb-10">
           <div className="w-1/2">
-            <Curriculum />
+            <Curriculum />²
           </div>
           <div className="w-1/2 flex items-start justify-center flex-col ">
             <div className="w-full max-w-3xl border-2 border-blue-500 rounded-lg p-2 bg-white shadow-lg">
@@ -20,7 +23,7 @@ export default function AboutPage() {
               {/* Preview image of CV */}
               <div className="relative w-full h-[600px] mb-4 group">
                 <Image 
-                  src="/assets/CV-HOUESSOU FABRICE-Version DEC 2024.png" 
+                 src={`data:image/png;base64,${base64CVImage}`}
                   alt="CV Preview" 
                   fill 
                   className="object-scale-down blur-sm transition-all duration-300"

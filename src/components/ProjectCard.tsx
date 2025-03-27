@@ -6,8 +6,8 @@ interface ProjectCardProps {
   description: string
   techStack: string
   imageUrl: string
-  livePreviewUrl: string
-  codeUrl: string
+  livePreviewUrl: string | null
+  codeUrl: string | null 
 }
 
 const ProjectCard = ({ title, description, techStack, imageUrl, livePreviewUrl, codeUrl }: ProjectCardProps) => {
@@ -28,20 +28,24 @@ const ProjectCard = ({ title, description, techStack, imageUrl, livePreviewUrl, 
         <p className="text-sm text-slate-500 mb-4">Tech stack: {techStack}</p>
         
         <div className="flex gap-4">
-          <Link 
-            href={livePreviewUrl}
-            target="_blank"
-            className="flex items-center gap-2 text-sm text-slate-600 hover:text-blue-500"
-          >
-            🔗 Live Preview
-          </Link>
-          <Link 
-            href={codeUrl}
-            target="_blank"
-            className="flex items-center gap-2 text-sm text-slate-600 hover:text-blue-500"
-          >
-            👨‍💻 View Code
-          </Link>
+          {livePreviewUrl && (
+            <Link 
+              href={livePreviewUrl}
+              target="_blank"
+              className="flex items-center gap-2 text-sm text-slate-600 hover:text-blue-500"
+            >
+              🔗 Live Preview
+            </Link>
+          )}
+          {codeUrl && (
+            <Link 
+              href={codeUrl}
+              target="_blank"
+              className="flex items-center gap-2 text-sm text-slate-600 hover:text-blue-500"
+            >
+              👨‍💻 View Code
+            </Link>
+          )}
         </div>
       </div>
     </div>
