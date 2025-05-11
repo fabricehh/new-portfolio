@@ -38,7 +38,7 @@ const TechStack = ({ position = "center" }: TechStackProps) => {
           </div>
           <div className="flex items-center justify-center p-4 relative h-20 w-20">
             <Image
-              src="/assets/tailwindcss.png"
+              src="/assets/CSharp.png"
               alt="Tailwind CSS"
               fill
               className="object-contain"
